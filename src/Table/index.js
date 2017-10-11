@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import tasks from '../data/tasks.json'
 
 
@@ -10,16 +10,19 @@ class Table extends Component {
           tasks.map(item => <Row data={ item }/>)
         }
         </table>
-    );
+    )
   }
 }
 
 class Row extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+  }
+  clicked() {
+    console.log('An element was clicked.')
   }
   render() {
-    const { data } = this.props;
+    const { data } = this.props
     return (
       <tr key={data.id}>
         <td>{data.title}</td>
@@ -27,7 +30,7 @@ class Row extends Component {
         <td>Created: {data.creation_date}</td>
         <td>Due By: {data.due_date}</td>
         <td>
-          <button type="button">Done</button>
+          <button type="button" onClick={ this.clicked }>Done</button>
         </td>
       </tr>
     )
@@ -35,4 +38,4 @@ class Row extends Component {
 }
 
 
-export default Table;
+export default Table
